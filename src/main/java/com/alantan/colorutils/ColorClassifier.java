@@ -22,7 +22,7 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package com.alantan.colorutils.classifier;
+package com.alantan.colorutils;
 
 import static com.alantan.colorutils.model.ColorClassification.BLACK;
 import static com.alantan.colorutils.model.ColorClassification.BLUE;
@@ -65,6 +65,16 @@ public final class ColorClassifier {
             }
         }
         return null;
+    }
+
+    /**
+     * Return classification for given color name.
+     * @param colorName Color name
+     * @return ColorClassification of color
+     */
+    public static ColorClassification getClassification(final String colorName) {
+        Color color = ColorNameParser.parse(colorName);
+        return color == null ? null : getClassification(color);
     }
 
     private static List<HsbRange> createHsbRanges() {
