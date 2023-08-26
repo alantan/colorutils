@@ -230,14 +230,14 @@ public final class ColorClassifier {
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(225, 255)
                 .saturation(15, 100)
-                .brightness(15, 70)
+                .brightness(15, 65)
                 .classification(BLUE)
                 .build());
         // bluish purple
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(225, 255)
                 .saturation(15, 100)
-                .brightness(70, 100)
+                .brightness(65, 100)
                 .classification(PURPLE)
                 .build());
         // Purple
@@ -249,30 +249,16 @@ public final class ColorClassifier {
                 .build());
         // Purple
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(290, 300)
+                .hue(290, 315)
                 .saturation(15, 100)
-                .brightness(15, 60)
+                .brightness(15, 70)
                 .classification(PURPLE)
                 .build());
         // Purplish Pink
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(290, 300)
+                .hue(290, 315)
                 .saturation(15, 100)
-                .brightness(60, 100)
-                .classification(PINK)
-                .build());
-        // Purple
-        hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(300, 315)
-                .saturation(15, 100)
-                .brightness(15, 90)
-                .classification(PURPLE)
-                .build());
-        // Purplish Pink
-        hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(300, 315)
-                .saturation(15, 100)
-                .brightness(90, 100)
+                .brightness(70, 100)
                 .classification(PINK)
                 .build());
         // Brown

@@ -42,6 +42,10 @@ public final class ColorNameParser {
                                  "/colornames.csv")) {
                 CsvHelper.fromCsv(inputStream, ",")
                         .forEach((row) -> {
+                            // Store both lowercase and compressed color names to support
+                            // colors that have different hex values but the same name.
+                            // For example, "Amber Glow" and "Amberglow" are different colors.
+                            COLOR_NAME_MAP.put(compressColorName(row.get(0)), row.get(1));
                             COLOR_NAME_MAP.put(normalizeColorName(row.get(0)), row.get(1));
                         });
             }
@@ -54,13 +58,21 @@ public final class ColorNameParser {
     }
 
     public static Color parse(final String colorName) {
+        // Priority is for the more accurate version
         String hex = COLOR_NAME_MAP.get(normalizeColorName(colorName));
+        if (hex == null) {
+            hex = COLOR_NAME_MAP.get(compressColorName(colorName));
+        }
         return hex == null ? null : Color.decode(hex);
+    }
+
+    private static String compressColorName(final String colorName) {
+        return normalizeColorName(colorName)
+                .replaceAll("[^a-zA-Z0-9]", "");
     }
 
     private static String normalizeColorName(final String colorName) {
         return colorName.toLowerCase()
-                .replace("grey", "gray")
-                .replaceAll("[^a-zA-Z0-9]", "");
+                .replace("grey", "gray");
     }
 }
