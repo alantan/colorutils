@@ -89,37 +89,44 @@ public final class ColorClassifier {
         // Brown
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(-15, 15)
-                .saturation(15, 50)
+                .saturation(15, 40)
                 .brightness(15, 100)
                 .classification(BROWN)
                 .build());
         // Red
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(-15, 8)
-                .saturation(50, 100)
+                .saturation(40, 100)
                 .brightness(15, 100)
                 .classification(RED)
                 .build());
         // Red
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(8, 15)
-                .saturation(50, 100)
+                .saturation(40, 100)
                 .brightness(15, 80)
                 .classification(RED)
                 .build());
         // Red
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(8, 15)
-                .saturation(50, 65)
+                .saturation(40, 65)
                 .brightness(80, 100)
                 .classification(RED)
                 .build());
         // Reddish Orange
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(8, 15)
+                .hue(8, 10)
                 .saturation(65, 100)
                 .brightness(80, 100)
                 .classification(ORANGE)
+                .build());
+        // Orange Red
+        hsbRanges.add(new HsbRange.HsbRangeBuilder()
+                .hue(10, 15)
+                .saturation(65, 100)
+                .brightness(80, 100)
+                .classification(RED)
                 .build());
         // Brown
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
@@ -172,21 +179,21 @@ public final class ColorClassifier {
                 .build());
         // Olive
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(45, 75)
+                .hue(45, 65)
                 .saturation(15, 100)
                 .brightness(15, 88)
                 .classification(GREEN)
                 .build());
         // Yellow
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(45, 75)
+                .hue(45, 65)
                 .saturation(15, 100)
                 .brightness(88, 100)
                 .classification(YELLOW)
                 .build());
         // Light green
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(75, 105)
+                .hue(65, 105)
                 .saturation(15, 100)
                 .brightness(15, 100)
                 .classification(GREEN)
@@ -292,14 +299,14 @@ public final class ColorClassifier {
         // Pink
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(340, 360)
-                .saturation(15, 50)
+                .saturation(15, 45)
                 .brightness(30, 100)
                 .classification(PINK)
                 .build());
         // Red
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(340, 360)
-                .saturation(50, 100)
+                .saturation(45, 100)
                 .brightness(30, 100)
                 .classification(RED)
                 .build());
