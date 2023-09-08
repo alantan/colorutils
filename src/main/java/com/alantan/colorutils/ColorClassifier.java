@@ -22,17 +22,26 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  * OTHER DEALINGS IN THE SOFTWARE.
  */
-package com.alantan.colorutils.classifier;
+package com.alantan.colorutils;
 
+import static com.alantan.colorutils.model.ColorClassification.PINK_PURPLE;
+import static com.alantan.colorutils.model.ColorClassification.GRAY_BLUE;
+import static com.alantan.colorutils.model.ColorClassification.LIGHT_GRAY;
+import static com.alantan.colorutils.model.ColorClassification.GREEN_YELLOW;
+import static com.alantan.colorutils.model.ColorClassification.PURPLE_MAUVE;
+import static com.alantan.colorutils.model.ColorClassification.OLIVE;
+import static com.alantan.colorutils.model.ColorClassification.ORANGE_RED;
+import static com.alantan.colorutils.model.ColorClassification.RED_ORANGE;
 import static com.alantan.colorutils.model.ColorClassification.BLACK;
 import static com.alantan.colorutils.model.ColorClassification.BLUE;
 import static com.alantan.colorutils.model.ColorClassification.BROWN;
 import static com.alantan.colorutils.model.ColorClassification.GRAY;
 import static com.alantan.colorutils.model.ColorClassification.GREEN;
 import static com.alantan.colorutils.model.ColorClassification.ORANGE;
-import static com.alantan.colorutils.model.ColorClassification.PINK;
+import static com.alantan.colorutils.model.ColorClassification.PINK_RED;
 import static com.alantan.colorutils.model.ColorClassification.PURPLE;
 import static com.alantan.colorutils.model.ColorClassification.RED;
+import static com.alantan.colorutils.model.ColorClassification.TURQUOISE;
 import static com.alantan.colorutils.model.ColorClassification.WHITE;
 import static com.alantan.colorutils.model.ColorClassification.YELLOW;
 
@@ -67,6 +76,16 @@ public final class ColorClassifier {
         return null;
     }
 
+    /**
+     * Return classification for given color name.
+     * @param colorName Color name
+     * @return ColorClassification of color
+     */
+    public static ColorClassification getClassification(final String colorName) {
+        Color color = ColorNameParser.parse(colorName);
+        return color == null ? null : getClassification(color);
+    }
+
     private static List<HsbRange> createHsbRanges() {
         List<HsbRange> hsbRanges = new ArrayList<>();
         // Black
@@ -79,37 +98,51 @@ public final class ColorClassifier {
         // Brown
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(-15, 15)
-                .saturation(15, 50)
+                .saturation(15, 40)
                 .brightness(15, 100)
                 .classification(BROWN)
                 .build());
         // Red
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(-15, 8)
-                .saturation(50, 100)
-                .brightness(15, 100)
+                .saturation(40, 100)
+                .brightness(15, 80)
                 .classification(RED)
+                .build());
+        // Red Orange
+        hsbRanges.add(new HsbRange.HsbRangeBuilder()
+                .hue(-15, 8)
+                .saturation(40, 100)
+                .brightness(80, 100)
+                .classification(RED_ORANGE)
                 .build());
         // Red
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(8, 15)
-                .saturation(50, 100)
+                .saturation(40, 100)
                 .brightness(15, 80)
                 .classification(RED)
                 .build());
         // Red
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(8, 15)
-                .saturation(50, 65)
+                .saturation(40, 65)
                 .brightness(80, 100)
                 .classification(RED)
                 .build());
-        // Reddish Orange
+        // Orange Red (Orange)
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(8, 15)
+                .hue(8, 10)
                 .saturation(65, 100)
                 .brightness(80, 100)
-                .classification(ORANGE)
+                .classification(ORANGE_RED)
+                .build());
+        // Red Orange (Red)
+        hsbRanges.add(new HsbRange.HsbRangeBuilder()
+                .hue(10, 15)
+                .saturation(65, 100)
+                .brightness(80, 100)
+                .classification(RED_ORANGE)
                 .build());
         // Brown
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
@@ -151,7 +184,7 @@ public final class ColorClassifier {
                 .hue(15, 20)
                 .saturation(90, 100)
                 .brightness(90, 100)
-                .classification(RED)
+                .classification(RED_ORANGE)
                 .build());
         // Orange
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
@@ -162,24 +195,24 @@ public final class ColorClassifier {
                 .build());
         // Olive
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(45, 75)
+                .hue(45, 65)
                 .saturation(15, 100)
                 .brightness(15, 88)
-                .classification(GREEN)
+                .classification(OLIVE)
                 .build());
         // Yellow
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(45, 75)
+                .hue(45, 65)
                 .saturation(15, 100)
                 .brightness(88, 100)
                 .classification(YELLOW)
                 .build());
         // Light green
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(75, 105)
+                .hue(65, 105)
                 .saturation(15, 100)
                 .brightness(15, 100)
-                .classification(GREEN)
+                .classification(GREEN_YELLOW)
                 .build());
         // Green
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
@@ -197,31 +230,66 @@ public final class ColorClassifier {
                 .build());
         // Turquoise
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(165, 195)
+                .hue(165, 185)
                 .saturation(15, 100)
                 .brightness(15, 100)
+                .classification(TURQUOISE)
+                .build());
+        // Turquoise
+        hsbRanges.add(new HsbRange.HsbRangeBuilder()
+                .hue(185, 195)
+                .saturation(15, 100)
+                .brightness(15, 80)
+                .classification(TURQUOISE)
+                .build());
+        // Gray blue
+        hsbRanges.add(new HsbRange.HsbRangeBuilder()
+                .hue(185, 195)
+                .saturation(15, 80)
+                .brightness(80, 100)
+                .classification(GRAY_BLUE)
+                .build());
+        // Blue
+        hsbRanges.add(new HsbRange.HsbRangeBuilder()
+                .hue(185, 195)
+                .saturation(80, 100)
+                .brightness(80, 100)
                 .classification(BLUE)
                 .build());
-        // Light blue
+        // Gray blue
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(195, 225)
-                .saturation(15, 100)
+                .saturation(15, 80)
                 .brightness(15, 100)
-                .classification(BLUE)
+                .classification(GRAY_BLUE)
                 .build());
-        // blue
+        // Gray blue
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(225, 255)
-                .saturation(15, 100)
+                .hue(195, 225)
+                .saturation(80, 100)
                 .brightness(15, 70)
+                .classification(GRAY_BLUE)
+                .build());
+        // Blue
+        hsbRanges.add(new HsbRange.HsbRangeBuilder()
+                .hue(195, 225)
+                .saturation(80, 100)
+                .brightness(70, 100)
                 .classification(BLUE)
                 .build());
-        // bluish purple
+        // Blue
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(225, 255)
                 .saturation(15, 100)
-                .brightness(70, 100)
-                .classification(PURPLE)
+                .brightness(15, 65)
+                .classification(BLUE)
+                .build());
+        // Mauve
+        hsbRanges.add(new HsbRange.HsbRangeBuilder()
+                .hue(225, 255)
+                .saturation(15, 100)
+                .brightness(65, 100)
+                .classification(PURPLE_MAUVE)
                 .build());
         // Purple
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
@@ -232,31 +300,17 @@ public final class ColorClassifier {
                 .build());
         // Purple
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(290, 300)
+                .hue(290, 315)
                 .saturation(15, 100)
-                .brightness(15, 60)
+                .brightness(15, 70)
                 .classification(PURPLE)
                 .build());
-        // Purplish Pink
+        // Dark Pink
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(290, 300)
+                .hue(290, 315)
                 .saturation(15, 100)
-                .brightness(60, 100)
-                .classification(PINK)
-                .build());
-        // Purple
-        hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(300, 315)
-                .saturation(15, 100)
-                .brightness(15, 90)
-                .classification(PURPLE)
-                .build());
-        // Purplish Pink
-        hsbRanges.add(new HsbRange.HsbRangeBuilder()
-                .hue(300, 315)
-                .saturation(15, 100)
-                .brightness(90, 100)
-                .classification(PINK)
+                .brightness(70, 100)
+                .classification(PINK_PURPLE)
                 .build());
         // Brown
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
@@ -270,7 +324,7 @@ public final class ColorClassifier {
                 .hue(315, 340)
                 .saturation(15, 100)
                 .brightness(45, 100)
-                .classification(PINK)
+                .classification(PINK_RED)
                 .build());
         // Brown
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
@@ -282,14 +336,14 @@ public final class ColorClassifier {
         // Pink
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(340, 360)
-                .saturation(15, 50)
+                .saturation(15, 45)
                 .brightness(30, 100)
-                .classification(PINK)
+                .classification(PINK_RED)
                 .build());
         // Red
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
                 .hue(340, 360)
-                .saturation(50, 100)
+                .saturation(45, 100)
                 .brightness(30, 100)
                 .classification(RED)
                 .build());
@@ -305,7 +359,7 @@ public final class ColorClassifier {
                 .hue(0, 360)
                 .saturation(0, 15)
                 .brightness(51, 82)
-                .classification(GRAY)
+                .classification(LIGHT_GRAY)
                 .build());
         // White
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
@@ -361,7 +415,7 @@ public final class ColorClassifier {
                 .hue(315, 360)
                 .saturation(10, 15)
                 .brightness(82, 90)
-                .classification(PINK)
+                .classification(PINK_RED)
                 .build());
         // White (saturated, but extremely high brightness)
         hsbRanges.add(new HsbRange.HsbRangeBuilder()
