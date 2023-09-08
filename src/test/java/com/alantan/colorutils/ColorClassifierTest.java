@@ -45,14 +45,16 @@ public class ColorClassifierTest {
     void testColorHelper_blue() {
         ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
                 new ColorClassifierTestCase(new Color(  0, 127, 255), "Azure"),
-                new ColorClassifierTestCase(new Color(  0, 128, 128), "Teal"),
-                new ColorClassifierTestCase(new Color(  0, 149, 182), "Bondi Blue"),
-                new ColorClassifierTestCase(new Color(  0, 153, 204), "Tomb Blue"),
                 new ColorClassifierTestCase(new Color(  0, 191, 255), "Capri"),
                 new ColorClassifierTestCase(new Color(  0, 204, 255), "Vivid Sky Blue"),
-                new ColorClassifierTestCase(new Color(  0, 255, 255), "Aqua"),
+        };
+        testAll(testCases, ColorClassification.BLUE);
+    }
+
+    @Test
+    void testColorHelper_gray_blue() {
+        ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
                 new ColorClassifierTestCase(new Color(  1, 103, 149), "Peacock blue"),
-                new ColorClassifierTestCase(new Color( 28, 169, 201), "Pacific Blue"),
                 new ColorClassifierTestCase(new Color( 49, 110, 160), "Lochmara"),
                 new ColorClassifierTestCase(new Color( 76, 107, 136), "Wedgewood"),
                 new ColorClassifierTestCase(new Color( 85, 170, 238), "Cerulean"),
@@ -61,18 +63,30 @@ public class ColorClassifierTest {
                 new ColorClassifierTestCase(new Color(108, 145, 197), "Cornflower blue"),
                 new ColorClassifierTestCase(new Color(109, 155, 195), "Cerulean Frost"),
                 new ColorClassifierTestCase(new Color(117, 141, 163), "Blue-gray"),
-                new ColorClassifierTestCase(new Color(120, 177, 191), "Glacier"),
                 new ColorClassifierTestCase(new Color(162, 191, 254), "Pastel blue"),
-                new ColorClassifierTestCase(new Color(170, 212, 209), "Eton Blue"),
                 new ColorClassifierTestCase(new Color(174, 198, 207), "Roquefort blue"),
-                new ColorClassifierTestCase(new Color(175, 238, 238), "Mint macaron"),
                 new ColorClassifierTestCase(new Color(176, 224, 230), "Powder blue"),
+        };
+        testAll(testCases, ColorClassification.GRAY_BLUE);
+    }
+
+    @Test
+    void testColorHelper_turquoise() {
+        ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
+                new ColorClassifierTestCase(new Color(  0, 128, 128), "Teal"),
+                new ColorClassifierTestCase(new Color(  0, 149, 182), "Bondi Blue"),
+                new ColorClassifierTestCase(new Color(  0, 153, 204), "Tomb Blue"),
+                new ColorClassifierTestCase(new Color(  0, 255, 255), "Aqua"),
+                new ColorClassifierTestCase(new Color( 28, 169, 201), "Pacific Blue"),
+                new ColorClassifierTestCase(new Color(120, 177, 191), "Glacier"),
+                new ColorClassifierTestCase(new Color(170, 212, 209), "Eton Blue"),
+                new ColorClassifierTestCase(new Color(175, 238, 238), "Mint macaron"),
                 new ColorClassifierTestCase(new Color(123, 242, 218), "Tiffany blue"),
                 new ColorClassifierTestCase(new Color(208, 254, 254), "Pale blue"),
                 // Not yet in database:
 //                new ColorClassifierTestCase(new Color(160, 209, 202), "Shelduck blue"),
         };
-        testAll(testCases, ColorClassification.BLUE);
+        testAll(testCases, ColorClassification.TURQUOISE);
     }
 
     @Test
@@ -102,10 +116,17 @@ public class ColorClassifierTest {
         ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
                 new ColorClassifierTestCase(new Color(54,   55,  55), "Dark Gray"),
                 new ColorClassifierTestCase(new Color(128, 128, 128), "Gray"),
+        };
+        testAll(testCases, ColorClassification.GRAY);
+    }
+
+    @Test
+    void testColorHelper_gray_light() {
+        ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
                 new ColorClassifierTestCase(new Color(170, 170, 170), "Dhūsar Grey"),
                 new ColorClassifierTestCase(new Color(192, 192, 192), "Silver"),
         };
-        testAll(testCases, ColorClassification.GRAY);
+        testAll(testCases, ColorClassification.LIGHT_GRAY);
     }
 
     @Test
@@ -117,30 +138,44 @@ public class ColorClassifierTest {
                 new ColorClassifierTestCase(new Color(  0, 255, 127), "Guppie Green"),
                 new ColorClassifierTestCase(new Color( 46, 232, 187), "Aquamarine"),
                 new ColorClassifierTestCase(new Color( 72, 125,  74), "Mint Green"),
+                new ColorClassifierTestCase(new Color(105, 176, 118), "Pale green"),
+                new ColorClassifierTestCase(new Color(127, 255, 212), "Hiroshima Aquamarine"),
+                new ColorClassifierTestCase(new Color(143, 188, 143), "Tiki Monster"),
+                new ColorClassifierTestCase(new Color(152, 251, 152), "Toxic Frog"),
+                new ColorClassifierTestCase(new Color(159, 226, 191), "Bright Sea green"),
+                new ColorClassifierTestCase(new Color(206, 240, 204), "Pastel mint"),
+        };
+        testAll(testCases, ColorClassification.GREEN);
+    }
+
+    @Test
+    void testColorHelper_green_yellow() {
+        ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
                 new ColorClassifierTestCase(new Color( 77, 164,   9), "Lawn green"),
                 new ColorClassifierTestCase(new Color( 86, 130,   3), "Avocado"),
-                new ColorClassifierTestCase(new Color( 92,  97,  22), "Kirchner Green"),
-                new ColorClassifierTestCase(new Color(102, 102,  85), "Dark Sea Green"),
-                new ColorClassifierTestCase(new Color(105, 176, 118), "Pale green"),
                 new ColorClassifierTestCase(new Color(107, 142,  35), "Scallion"),
                 new ColorClassifierTestCase(new Color(111, 118,  50), "Olive Drab"),
                 new ColorClassifierTestCase(new Color(124, 252,   0), "Nuclear Waste"),
                 new ColorClassifierTestCase(new Color(127, 255,   0), "Radium"),
-                new ColorClassifierTestCase(new Color(127, 255, 212), "Hiroshima Aquamarine"),
-                new ColorClassifierTestCase(new Color(128, 128,   0), "Heart Gold"),
-                new ColorClassifierTestCase(new Color(128, 128,  16), "Olive"),
-                new ColorClassifierTestCase(new Color(143, 188, 143), "Tiki Monster"),
-                new ColorClassifierTestCase(new Color(152, 251, 152), "Toxic Frog"),
                 new ColorClassifierTestCase(new Color(153, 187, 136), "Sea foam green"),
-                new ColorClassifierTestCase(new Color(159, 226, 191), "Bright Sea green"),
                 new ColorClassifierTestCase(new Color(170, 255,  50), "Lime"),
                 new ColorClassifierTestCase(new Color(173, 255,  47), "Chestnut Shell"),
                 new ColorClassifierTestCase(new Color(193, 248,  10), "Chartreuse"),
                 new ColorClassifierTestCase(new Color(198, 234, 128), "Sulu"),
-                new ColorClassifierTestCase(new Color(206, 240, 204), "Pastel mint"),
                 new ColorClassifierTestCase(new Color(209, 226,  49), "Pear"),
         };
-        testAll(testCases, ColorClassification.GREEN);
+        testAll(testCases, ColorClassification.GREEN_YELLOW);
+    }
+
+    @Test
+    void testColorHelper_green_olive() {
+        ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
+                new ColorClassifierTestCase(new Color( 92,  97,  22), "Kirchner Green"),
+                new ColorClassifierTestCase(new Color(102, 102,  85), "Dark Sea Green"),
+                new ColorClassifierTestCase(new Color(128, 128,   0), "Heart Gold"),
+                new ColorClassifierTestCase(new Color(128, 128,  16), "Olive"),
+        };
+        testAll(testCases, ColorClassification.OLIVE);
     }
 
     @Test
@@ -149,7 +184,6 @@ public class ColorClassifierTest {
                 new ColorClassifierTestCase(new Color(184, 115,  51), "Copper"),
                 new ColorClassifierTestCase(new Color(196,  98,  16), "Alloy Orange"),
                 new ColorClassifierTestCase(new Color(198,  81,   2), "Dark Orange"),
-                new ColorClassifierTestCase(new Color(255, 176,  95), "Vintage Orange"),
                 new ColorClassifierTestCase(new Color(203, 104,  67), "Terracotta"),
                 new ColorClassifierTestCase(new Color(205,  87,   0), "Tenné"),
                 new ColorClassifierTestCase(new Color(205, 127,  50), "Polished Bronze"),
@@ -168,11 +202,11 @@ public class ColorClassifierTest {
                 new ColorClassifierTestCase(new Color(244, 164,  96), "Sandy Brown"),
                 new ColorClassifierTestCase(new Color(247, 127,   0), "University Of Tennessee Orange"),
                 new ColorClassifierTestCase(new Color(251, 171,  96), "Rajah"),
-                new ColorClassifierTestCase(new Color(255,  99,  71), "Bruschetta Tomato"),
                 new ColorClassifierTestCase(new Color(255, 127,  80), "Coral"),
                 new ColorClassifierTestCase(new Color(255, 140,   0), "Sun Crete"),
                 new ColorClassifierTestCase(new Color(255, 153,  50), "Deep Saffron"),
                 new ColorClassifierTestCase(new Color(255, 160, 122), "Dwarven Peaches"),
+                new ColorClassifierTestCase(new Color(255, 176,  95), "Vintage Orange"),
                 new ColorClassifierTestCase(new Color(255, 187, 124), "Buff Orange"),
                 new ColorClassifierTestCase(new Color(255, 203, 164), "Corn Kernel"),
                 new ColorClassifierTestCase(new Color(255, 209, 175), "Papaya whip"),
@@ -188,25 +222,41 @@ public class ColorClassifierTest {
     }
 
     @Test
+    void testColorHelper_orange_red() {
+        ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
+                new ColorClassifierTestCase(new Color(255,  99,  71), "Bruschetta Tomato"),
+        };
+        testAll(testCases, ColorClassification.ORANGE_RED);
+    }
+
+    @Test
     void testColorHelper_pink() {
         ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
                 new ColorClassifierTestCase(new Color(160,   2,  92), "Deep magenta"),
+                new ColorClassifierTestCase(new Color(255,   2, 141), "Hot Pink"),
+                new ColorClassifierTestCase(new Color(255,  20, 147), "Secret Story"),
+                new ColorClassifierTestCase(new Color(255, 105, 180), "Girls Night Out"),
+                new ColorClassifierTestCase(new Color(255, 182, 193), "Matt Pink"),
+                new ColorClassifierTestCase(new Color(255, 183, 197), "Cherry blossom pink"),
+                new ColorClassifierTestCase(new Color(255, 192, 203), "Pink"),
+                new ColorClassifierTestCase(new Color(255, 209, 223), "Light Pink"),
+        };
+        testAll(testCases, ColorClassification.PINK_RED);
+    }
+
+
+    @Test
+    void testColorHelper_pink_dark() {
+        ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
                 new ColorClassifierTestCase(new Color(204,   0, 204), "Screaming magenta"),
                 new ColorClassifierTestCase(new Color(218, 112, 214), "Pink Orchid"),
                 new ColorClassifierTestCase(new Color(221, 160, 221), "Damson Plum"),
                 new ColorClassifierTestCase(new Color(237,  13, 217), "Fuchsia"),
                 new ColorClassifierTestCase(new Color(238, 130, 238), "Mamie Pink"),
                 new ColorClassifierTestCase(new Color(255,   0, 255), "Magenta"),
-                new ColorClassifierTestCase(new Color(255,   2, 141), "Hot Pink"),
-                new ColorClassifierTestCase(new Color(255,  20, 147), "Secret Story"),
-                new ColorClassifierTestCase(new Color(255, 105, 180), "Girls Night Out"),
                 new ColorClassifierTestCase(new Color(255, 119, 255), "Fuchsia pink"),
-                new ColorClassifierTestCase(new Color(255, 182, 193), "Matt Pink"),
-                new ColorClassifierTestCase(new Color(255, 183, 197), "Cherry blossom pink"),
-                new ColorClassifierTestCase(new Color(255, 192, 203), "Pink"),
-                new ColorClassifierTestCase(new Color(255, 209, 223), "Light Pink"),
         };
-        testAll(testCases, ColorClassification.PINK);
+        testAll(testCases, ColorClassification.PINK_PURPLE);
     }
 
     @Test
@@ -214,10 +264,7 @@ public class ColorClassifierTest {
         ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
                 new ColorClassifierTestCase(new Color( 52,   1,  63), "Dark violet"),
                 new ColorClassifierTestCase(new Color( 53,   6,  62), "Dark purple"),
-                new ColorClassifierTestCase(new Color( 78,  50, 178), "Blue violet"),
                 new ColorClassifierTestCase(new Color(102,  56, 106), "Plum"),
-                new ColorClassifierTestCase(new Color(106,  90, 205), "Ameixa"),
-                new ColorClassifierTestCase(new Color(122, 129, 255), "Orchid"),
                 new ColorClassifierTestCase(new Color(126,  48, 117), "Veronica purple"),
                 new ColorClassifierTestCase(new Color(128,   0, 128), "Purple"),
                 new ColorClassifierTestCase(new Color(138,  43, 226), "Bright Blue violet"),
@@ -229,13 +276,23 @@ public class ColorClassifierTest {
                 new ColorClassifierTestCase(new Color(154,  14, 234), "Violet"),
                 new ColorClassifierTestCase(new Color(158,  67, 162), "Medium purple"),
                 new ColorClassifierTestCase(new Color(160,  32, 255), "Veronica"),
-                new ColorClassifierTestCase(new Color(172, 172, 230), "Maximum Blue Purple"),
-                new ColorClassifierTestCase(new Color(173, 186, 227), "French Lilac blue"),
                 new ColorClassifierTestCase(new Color(186,  85, 211), "Medium orchid"),
-                new ColorClassifierTestCase(new Color(204, 204, 255), "Lavender blue"),
                 new ColorClassifierTestCase(new Color(216, 191, 216), "Thistle"),
         };
         testAll(testCases, ColorClassification.PURPLE);
+    }
+
+    @Test
+    void testColorHelper_purple_mauve() {
+        ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
+                new ColorClassifierTestCase(new Color( 78,  50, 178), "Blue violet"),
+                new ColorClassifierTestCase(new Color(106,  90, 205), "Ameixa"),
+                new ColorClassifierTestCase(new Color(122, 129, 255), "Orchid"),
+                new ColorClassifierTestCase(new Color(172, 172, 230), "Maximum Blue Purple"),
+                new ColorClassifierTestCase(new Color(173, 186, 227), "French Lilac blue"),
+                new ColorClassifierTestCase(new Color(204, 204, 255), "Lavender blue"),
+        };
+        testAll(testCases, ColorClassification.PURPLE_MAUVE);
     }
 
     @Test
@@ -267,18 +324,25 @@ public class ColorClassifierTest {
                 new ColorClassifierTestCase(new Color(178,  34,  34), "Fire Brick"),
                 new ColorClassifierTestCase(new Color(203, 109,  81), "Copper Red"),
                 new ColorClassifierTestCase(new Color(205,  92,  92), "Common Chestnut"),
-                new ColorClassifierTestCase(new Color(217,  96,  59), "Medium Vermilion"),
                 new ColorClassifierTestCase(new Color(226, 114,  91), "Phoenix Red"),
                 new ColorClassifierTestCase(new Color(227,  66,  68), "Vermilion Cinnabar"),
                 new ColorClassifierTestCase(new Color(233, 116,  81), "Bloodletter"),
+        };
+        testAll(testCases, ColorClassification.RED);
+    }
+
+    @Test
+    void testColorHelper_red_orange() {
+        ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
+                new ColorClassifierTestCase(new Color(217,  96,  59), "Medium Vermilion"),
                 new ColorClassifierTestCase(new Color(239,  64,  38), "Tomato"),
                 new ColorClassifierTestCase(new Color(254,  68,   1), "Orange Red"),
-                new ColorClassifierTestCase(new Color(255,  56,   0), "Coquelicot"),
                 new ColorClassifierTestCase(new Color(255,  36,   0), "Scarlet"),
+                new ColorClassifierTestCase(new Color(255,  56,   0), "Coquelicot"),
                 new ColorClassifierTestCase(new Color(255,  63,  52), "Red Orange"),
                 new ColorClassifierTestCase(new Color(255,  83,  73), "Red Orange Juice"),
         };
-        testAll(testCases, ColorClassification.RED);
+        testAll(testCases, ColorClassification.RED_ORANGE);
     }
 
     @Test

@@ -25,37 +25,18 @@
 package com.alantan.colorutils.model;
 
 /**
- * List of general color classifications.
+ * List of general color families.
  */
-public enum ColorClassification {
-    BLACK(ColorFamily.BLACK),
-    LIGHT_GRAY(ColorFamily.GRAY),
-    GRAY(ColorFamily.GRAY),
-    WHITE(ColorFamily.WHITE),
-    RED(ColorFamily.RED),
-    RED_ORANGE(ColorFamily.RED),
-    ORANGE_RED(ColorFamily.ORANGE),
-    ORANGE(ColorFamily.ORANGE),
-    YELLOW(ColorFamily.YELLOW),
-    OLIVE(ColorFamily.GREEN),
-    GREEN_YELLOW(ColorFamily.GREEN),
-    GREEN(ColorFamily.GREEN),
-    TURQUOISE(ColorFamily.BLUE),
-    GRAY_BLUE(ColorFamily.BLUE),
-    BLUE(ColorFamily.BLUE),
-    PURPLE_MAUVE(ColorFamily.PURPLE),
-    PURPLE(ColorFamily.PURPLE),
-    PINK_PURPLE(ColorFamily.PINK),
-    PINK_RED(ColorFamily.PINK),
-    BROWN(ColorFamily.BROWN);
-
-    private final ColorFamily family;
-
-    ColorClassification(final ColorFamily family) {
-        this.family = family;
-    }
-
-    public ColorFamily getFamily() {
-        return family;
-    }
+public enum ColorFamily {
+    BLACK,
+    GRAY,
+    WHITE,
+    RED,
+    ORANGE,
+    YELLOW,
+    GREEN,
+    BLUE,
+    PURPLE,
+    PINK,
+    BROWN,
 }
