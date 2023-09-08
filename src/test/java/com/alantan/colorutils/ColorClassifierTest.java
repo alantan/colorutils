@@ -47,6 +47,9 @@ public class ColorClassifierTest {
                 new ColorClassifierTestCase(new Color(  0, 127, 255), "Azure"),
                 new ColorClassifierTestCase(new Color(  0, 191, 255), "Capri"),
                 new ColorClassifierTestCase(new Color(  0, 204, 255), "Vivid Sky Blue"),
+                new ColorClassifierTestCase(new Color(  4, 217, 255), "Neon Blue"),
+                new ColorClassifierTestCase(new Color( 14,  21,  49), "Liberty Blue"),
+                new ColorClassifierTestCase(new Color(  0,   0, 128), "Navy Blue"),
         };
         testAll(testCases, ColorClassification.BLUE);
     }
@@ -54,16 +57,21 @@ public class ColorClassifierTest {
     @Test
     void testColorHelper_gray_blue() {
         ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
+                new ColorClassifierTestCase(new Color(  0,  80, 141), "Lapis Blue"),
                 new ColorClassifierTestCase(new Color(  1, 103, 149), "Peacock blue"),
                 new ColorClassifierTestCase(new Color( 49, 110, 160), "Lochmara"),
+                new ColorClassifierTestCase(new Color( 60,  96, 152), "Bright Cobalt"),
                 new ColorClassifierTestCase(new Color( 76, 107, 136), "Wedgewood"),
+                new ColorClassifierTestCase(new Color( 80, 100, 127), "Admiral Blue"),
                 new ColorClassifierTestCase(new Color( 85, 170, 238), "Cerulean"),
                 new ColorClassifierTestCase(new Color( 91, 124, 153), "Slate blue"),
                 new ColorClassifierTestCase(new Color( 93, 138, 168), "Air Force blue"),
                 new ColorClassifierTestCase(new Color(108, 145, 197), "Cornflower blue"),
                 new ColorClassifierTestCase(new Color(109, 155, 195), "Cerulean Frost"),
                 new ColorClassifierTestCase(new Color(117, 141, 163), "Blue-gray"),
+                new ColorClassifierTestCase(new Color(137, 207, 240), "Pool Tiles"),
                 new ColorClassifierTestCase(new Color(162, 191, 254), "Pastel blue"),
+                new ColorClassifierTestCase(new Color(162, 207, 254), "Baby Blue"),
                 new ColorClassifierTestCase(new Color(174, 198, 207), "Roquefort blue"),
                 new ColorClassifierTestCase(new Color(176, 224, 230), "Powder blue"),
         };
@@ -79,6 +87,7 @@ public class ColorClassifierTest {
                 new ColorClassifierTestCase(new Color(  0, 255, 255), "Aqua"),
                 new ColorClassifierTestCase(new Color( 28, 169, 201), "Pacific Blue"),
                 new ColorClassifierTestCase(new Color(120, 177, 191), "Glacier"),
+                new ColorClassifierTestCase(new Color(149, 214, 220), "Arctic Blue"),
                 new ColorClassifierTestCase(new Color(170, 212, 209), "Eton Blue"),
                 new ColorClassifierTestCase(new Color(175, 238, 238), "Mint macaron"),
                 new ColorClassifierTestCase(new Color(123, 242, 218), "Tiffany blue"),
@@ -285,6 +294,8 @@ public class ColorClassifierTest {
     @Test
     void testColorHelper_purple_mauve() {
         ColorClassifierTestCase[] testCases = new ColorClassifierTestCase[] {
+                new ColorClassifierTestCase(new Color( 28,  28, 240), "Bluebonnet"),
+                new ColorClassifierTestCase(new Color( 75,  97, 209), "Savoy Blue"),
                 new ColorClassifierTestCase(new Color( 78,  50, 178), "Blue violet"),
                 new ColorClassifierTestCase(new Color(106,  90, 205), "Ameixa"),
                 new ColorClassifierTestCase(new Color(122, 129, 255), "Orchid"),
